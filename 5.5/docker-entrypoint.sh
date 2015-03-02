@@ -25,7 +25,7 @@ if [ "$1" = 'mysqld' ]; then
 		# TODO proper SQL escaping on ALL the things D:
 		
 		tempSqlFile='/tmp/mysql-first-time.sql'
-		cat > "$tempSqlFile" <<-EOSQL
+		cat >> "$tempSqlFile" <<-EOSQL
 			DELETE FROM mysql.user ;
 			CREATE USER 'root'@'%' IDENTIFIED BY '${MYSQL_ROOT_PASSWORD}' ;
 			GRANT ALL ON *.* TO 'root'@'%' WITH GRANT OPTION ;
